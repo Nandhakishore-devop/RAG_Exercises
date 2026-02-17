@@ -1,0 +1,361 @@
+MASTER SERVICE AGREEMENT
+=========================
+Contract No: MSA-2026-0142
+Date: January 1, 2026
+Between: TechNova Solutions Pvt. Ltd. ("Service Provider")
+And: GlobalRetail Corp. ("Client")
+
+ARTICLE 1: DEFINITIONS
+------------------------
+1.1 "Services" means the software development, maintenance, and support services described in Exhibit A attached hereto.
+1.2 "Deliverables" means all work products, software, documentation, and materials created by Service Provider under this Agreement.
+1.3 "Confidential Information" means any non-public information disclosed by either party, including but not limited to trade secrets, business plans, financial data, customer lists, and technical specifications.
+1.4 "Intellectual Property" means all patents, copyrights, trademarks, trade secrets, and other intellectual property rights.
+1.5 "Term" means the period beginning on the Effective Date and continuing for 36 months unless earlier terminated in accordance with this Agreement.
+1.6 "Service Level Agreement (SLA)" means the performance standards and metrics set forth in Exhibit B.
+
+ARTICLE 2: SCOPE OF SERVICES
+-------------------------------
+2.1 Service Provider shall provide the Services as described in Exhibit A in accordance with the terms and conditions of this Agreement.
+2.2 Any changes to the scope of Services shall be documented in a written Change Order signed by both parties. Change Orders shall specify the nature of the change, impact on timeline, and any additional costs.
+2.3 Service Provider shall assign qualified personnel with appropriate skills and experience to perform the Services. Key personnel may not be reassigned without prior written consent of the Client.
+
+ARTICLE 3: COMPENSATION AND PAYMENT
+--------------------------------------
+3.1 Fee Structure
+The Client shall pay the Service Provider a monthly fee of USD 150,000 for the Services, payable within 30 days of receipt of invoice. Late payments shall accrue interest at a rate of 1.5% per month.
+
+3.2 Expenses
+Reasonable travel and accommodation expenses incurred in connection with the Services shall be reimbursed by the Client upon submission of receipts, subject to a monthly cap of USD 10,000 and prior written approval.
+
+3.3 Taxes
+All fees are exclusive of applicable taxes. The Client shall be responsible for all sales, use, VAT, and withholding taxes imposed on the Services.
+
+3.4 Audit Rights
+The Client shall have the right to audit the Service Provider's time records and expense reports upon 15 business days' prior written notice, no more than once per calendar year.
+
+ARTICLE 4: TERM AND TERMINATION
+----------------------------------
+4.1 Term
+This Agreement shall commence on January 1, 2026 and continue for an initial term of 36 months ("Initial Term"). Thereafter, the Agreement shall automatically renew for successive 12-month periods unless either party provides written notice of non-renewal at least 90 days prior to the end of the then-current term.
+
+4.2 Termination for Convenience
+Either party may terminate this Agreement for any reason upon 90 days' prior written notice to the other party. Upon such termination, the Client shall pay for all Services performed and expenses incurred through the effective date of termination.
+
+4.3 Termination for Cause
+Either party may terminate this Agreement immediately upon written notice if the other party:
+(a) Materially breaches this Agreement and fails to cure such breach within 30 days after receiving written notice thereof;
+(b) Becomes insolvent, bankrupt, or enters into receivership;
+(c) Makes an assignment for the benefit of creditors.
+
+4.4 Termination for Force Majeure
+If a Force Majeure Event (as defined in Article 10) continues for more than 60 consecutive days, either party may terminate this Agreement upon 10 days' written notice. In such event, neither party shall be liable to the other for any damages arising from such termination, except for payment obligations for Services already performed.
+
+4.5 Effects of Termination
+Upon termination:
+(a) Service Provider shall deliver all completed and in-progress Deliverables to the Client;
+(b) Client shall pay all outstanding invoices within 30 days;
+(c) Each party shall return or destroy Confidential Information of the other party;
+(d) Provisions that by their nature should survive termination shall survive, including Articles 5, 6, 7, 8, and 12.
+
+ARTICLE 5: INTELLECTUAL PROPERTY
+-----------------------------------
+5.1 Client Ownership
+All Deliverables created specifically for the Client under this Agreement shall be the exclusive property of the Client. Service Provider hereby assigns all rights, title, and interest in such Deliverables to the Client.
+
+5.2 Service Provider Tools
+Service Provider retains ownership of all pre-existing tools, frameworks, libraries, and methodologies ("Provider Tools") used in performing the Services. Service Provider grants the Client a non-exclusive, perpetual, royalty-free license to use any Provider Tools incorporated into the Deliverables.
+
+5.3 Third-Party Components
+Service Provider shall not incorporate any third-party software or components into the Deliverables without prior written consent of the Client. All third-party licenses must be compatible with the Client's intended use.
+
+ARTICLE 6: CONFIDENTIALITY
+-----------------------------
+6.1 Obligations
+Each party agrees to: (a) maintain the confidentiality of the other party's Confidential Information; (b) not disclose such information to any third party without prior written consent; (c) use such information solely for the purposes of this Agreement; (d) protect such information with at least the same degree of care it uses to protect its own confidential information, but no less than reasonable care.
+
+6.2 Exceptions
+Confidential Information does not include information that: (a) is or becomes publicly available without breach of this Agreement; (b) was known to the receiving party prior to disclosure; (c) is independently developed without reference to the disclosing party's information; (d) is rightfully received from a third party without restriction.
+
+6.3 Duration
+The obligations of confidentiality shall survive termination of this Agreement for a period of 5 years from the date of disclosure, except for trade secrets which shall be protected indefinitely.
+
+ARTICLE 7: DATA PROTECTION AND PRIVACY
+-----------------------------------------
+7.1 Compliance
+Both parties shall comply with all applicable data protection laws, including but not limited to the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), and India's Digital Personal Data Protection Act (DPDPA) 2023.
+
+7.2 Data Processing
+When processing personal data on behalf of the Client, Service Provider shall: (a) process data only on documented instructions from the Client; (b) ensure personnel are bound by confidentiality obligations; (c) implement appropriate technical and organizational security measures; (d) notify the Client within 72 hours of discovering a data breach.
+
+7.3 Data Location
+All Client data shall be stored and processed within data centers located in the jurisdictions agreed upon in Exhibit C. Service Provider shall not transfer data to any other jurisdiction without prior written consent.
+
+7.4 Data Retention
+Upon termination of this Agreement, Service Provider shall delete or return all Client personal data within 30 days, unless retention is required by applicable law.
+
+ARTICLE 8: WARRANTIES AND REPRESENTATIONS
+--------------------------------------------
+8.1 Service Provider warrants that: (a) the Services shall be performed in a professional and workmanlike manner consistent with industry standards; (b) the Deliverables shall conform to the specifications agreed upon; (c) it has the right and authority to enter into this Agreement.
+
+8.2 Client warrants that: (a) it has the right and authority to enter into this Agreement; (b) it shall provide timely access to necessary systems, data, and personnel.
+
+8.3 DISCLAIMER: EXCEPT AS EXPRESSLY SET FORTH HEREIN, NEITHER PARTY MAKES ANY WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+ARTICLE 9: LIABILITY AND INDEMNIFICATION
+-------------------------------------------
+9.1 Limitation of Liability
+EXCEPT FOR BREACHES OF ARTICLE 6 (CONFIDENTIALITY), ARTICLE 7 (DATA PROTECTION), AND OBLIGATIONS UNDER ARTICLE 9.3 (INDEMNIFICATION), NEITHER PARTY'S AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL EXCEED THE TOTAL FEES PAID OR PAYABLE DURING THE 12-MONTH PERIOD PRECEDING THE CLAIM.
+
+9.2 Exclusion of Damages
+IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR BUSINESS OPPORTUNITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9.3 Indemnification
+Service Provider shall indemnify and hold harmless the Client from any third-party claims arising from: (a) infringement of intellectual property rights; (b) Service Provider's negligence or willful misconduct; (c) breach of data protection obligations.
+
+ARTICLE 10: FORCE MAJEURE
+----------------------------
+10.1 Neither party shall be liable for any delay or failure to perform its obligations under this Agreement due to circumstances beyond its reasonable control, including but not limited to: natural disasters, epidemics, pandemics, war, terrorism, civil unrest, government actions, strikes, power failures, or internet failures ("Force Majeure Event").
+
+10.2 The affected party shall promptly notify the other party in writing of the Force Majeure Event, its expected duration, and the obligations affected. The affected party shall use reasonable efforts to mitigate the impact and resume performance as soon as practicable.
+
+ARTICLE 11: DISPUTE RESOLUTION
+---------------------------------
+11.1 Negotiation
+Any dispute arising under this Agreement shall first be referred to the senior management of both parties for resolution through good-faith negotiation within 30 days.
+
+11.2 Mediation
+If the dispute is not resolved through negotiation, the parties shall submit the dispute to mediation administered by the Singapore International Mediation Centre (SIMC).
+
+11.3 Arbitration
+If mediation fails, the dispute shall be resolved by binding arbitration under the rules of the Singapore International Arbitration Centre (SIAC). The arbitration shall be conducted in English, and the seat of arbitration shall be Singapore.
+
+11.4 Governing Law
+This Agreement shall be governed by and construed in accordance with the laws of Singapore, without regard to its conflict of laws principles.
+
+ARTICLE 12: GENERAL PROVISIONS
+---------------------------------
+12.1 Entire Agreement: This Agreement, together with all Exhibits, constitutes the entire agreement between the parties and supersedes all prior negotiations, representations, and agreements.
+
+12.2 Amendment: This Agreement may only be amended by a written instrument signed by both parties.
+
+12.3 Assignment: Neither party may assign this Agreement without the prior written consent of the other party, except in connection with a merger, acquisition, or sale of substantially all assets.
+
+12.4 Notices: All notices shall be in writing and sent to the addresses specified in the signature block, by registered mail, courier, or email with confirmed receipt.
+
+12.5 Severability: If any provision of this Agreement is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+
+12.6 Waiver: The failure of either party to enforce any provision shall not constitute a waiver of future enforcement of that or any other provision.
+
+ARTICLE 13: NON-COMPETE AND NON-SOLICITATION
+-----------------------------------------------
+13.1 Non-Solicitation of Employees
+During the term of this Agreement and for a period of 12 months following its termination, neither party shall directly or indirectly solicit, recruit, or hire any employee or contractor of the other party who was involved in the performance of the Services, without prior written consent.
+
+13.2 Non-Solicitation of Clients
+Service Provider agrees that during the term and for 12 months after termination, it shall not directly or indirectly solicit or accept business from any of the Client's customers or prospects that Service Provider became aware of through its performance of the Services under this Agreement.
+
+13.3 Non-Compete Scope
+Service Provider shall not develop or provide substantially similar services to any direct competitor of the Client (as listed in Exhibit D) during the term of this Agreement. This restriction does not apply to pre-existing engagements disclosed in writing at the time of signing.
+
+13.4 Remedies for Violation
+The parties agree that a breach of this Article would cause irreparable harm not adequately compensable by monetary damages. Accordingly, the non-breaching party shall be entitled to injunctive relief in addition to any other remedies available under this Agreement or at law.
+
+
+================================================================================
+DATA PROTECTION AND COMPLIANCE REGULATIONS
+================================================================================
+TechNova Solutions — Internal Compliance Handbook
+Version 3.0 | January 2026
+
+REGULATION 1: GENERAL DATA PROTECTION REGULATION (GDPR) COMPLIANCE
+=====================================================================
+
+1.1 Scope and Applicability
+GDPR applies to all processing of personal data of individuals located in the European Economic Area (EEA). This includes data collected through our web applications, mobile apps, email communications, and any third-party integrations.
+
+1.2 Lawful Basis for Processing
+Before processing any personal data, teams must identify and document the lawful basis from the following:
+(a) Consent: The data subject has given explicit consent for the specific purpose.
+(b) Contract: Processing is necessary for the performance of a contract.
+(c) Legal Obligation: Processing is required to comply with a legal obligation.
+(d) Legitimate Interest: Processing is necessary for legitimate business interests, provided it does not override the data subject's rights.
+
+1.3 Data Subject Rights
+We must honor the following rights within 30 days of receiving a request:
+- Right to Access: Provide a copy of all personal data held about the individual.
+- Right to Rectification: Correct any inaccurate or incomplete data.
+- Right to Erasure ("Right to be Forgotten"): Delete personal data when no longer necessary.
+- Right to Restriction: Limit processing upon request.
+- Right to Data Portability: Provide data in a machine-readable format.
+- Right to Object: Stop processing for direct marketing purposes.
+
+1.4 Data Breach Notification
+In the event of a personal data breach:
+(a) The Data Protection Officer must be notified within 12 hours of discovery.
+(b) The supervisory authority must be notified within 72 hours if the breach is likely to result in a risk to individuals' rights and freedoms.
+(c) Affected individuals must be notified without undue delay if the breach is likely to result in a high risk to their rights and freedoms.
+
+1.5 Data Protection Impact Assessment (DPIA)
+A DPIA must be conducted before initiating any processing activity that is likely to result in a high risk to individuals, including:
+- Large-scale processing of sensitive data
+- Systematic monitoring of publicly accessible areas
+- Automated decision-making, including profiling
+
+REGULATION 2: CALIFORNIA CONSUMER PRIVACY ACT (CCPA) COMPLIANCE
+==================================================================
+
+2.1 Applicability
+CCPA applies to personal information of California residents. Given our user base, all customer-facing products must comply with CCPA requirements.
+
+2.2 Consumer Rights Under CCPA
+- Right to Know: Consumers can request a list of categories and specific pieces of personal information collected.
+- Right to Delete: Consumers can request deletion of their personal information, subject to limited exceptions.
+- Right to Opt-Out: Consumers can opt out of the "sale" of their personal information.
+- Right to Non-Discrimination: Consumers cannot be discriminated against for exercising their CCPA rights.
+
+2.3 Privacy Notice Requirements
+Our privacy policy must include:
+(a) Categories of personal information collected in the preceding 12 months
+(b) Categories of sources from which the information was collected
+(c) Business or commercial purpose for collecting the information
+(d) Categories of third parties with whom we share personal information
+(e) Specific pieces of personal information collected about the consumer
+
+2.4 "Do Not Sell My Personal Information"
+A clear and conspicuous "Do Not Sell My Personal Information" link must be displayed on all websites and applications accessible to California residents.
+
+REGULATION 3: INDIA DIGITAL PERSONAL DATA PROTECTION ACT (DPDPA) 2023
+========================================================================
+
+3.1 Key Obligations
+As a company based in India, we must comply with the following DPDPA requirements:
+(a) Process personal data only for lawful purposes with the consent of the Data Principal.
+(b) Provide clear notice to Data Principals before collecting their data.
+(c) Implement reasonable security safeguards to protect personal data.
+(d) Retain personal data only as long as necessary for the stated purpose.
+
+3.2 Consent Requirements
+Consent must be:
+- Free, specific, informed, and unambiguous
+- Given through a clear affirmative action
+- Withdrawable at any time through an equally easy mechanism
+
+3.3 Data Principal Rights
+- Right to access information about processing
+- Right to correction and erasure of personal data
+- Right to grievance redressal
+- Right to nominate another person to exercise rights in case of death or incapacity
+
+3.4 Penalties
+Non-compliance with DPDPA provisions may result in penalties up to INR 250 crore (approximately USD 30 million) per instance.
+
+REGULATION 4: HIPAA COMPLIANCE (HEALTH DATA)
+===============================================
+
+4.1 Applicability
+HIPAA (Health Insurance Portability and Accountability Act) applies when our systems process, store, or transmit Protected Health Information (PHI) on behalf of healthcare clients. This includes any individually identifiable health information including medical records, lab results, insurance information, and demographic data collected in a healthcare context.
+
+4.2 Administrative Safeguards
+(a) Designate a HIPAA Privacy Officer and a HIPAA Security Officer.
+(b) Conduct risk assessments annually and document all identified risks and mitigation measures.
+(c) Implement workforce training on HIPAA requirements within 30 days of onboarding and annually thereafter.
+(d) Establish sanctions policy for employees who violate HIPAA requirements.
+
+4.3 Technical Safeguards
+(a) Implement unique user identification for all users accessing PHI.
+(b) Implement automatic logoff after 15 minutes of inactivity on systems containing PHI.
+(c) Encrypt all PHI at rest using AES-256 and in transit using TLS 1.3.
+(d) Maintain audit logs of all access to PHI for a minimum of 6 years.
+
+4.4 Business Associate Agreements (BAA)
+A BAA must be executed with any third party that may access PHI on our behalf. The BAA must include:
+(a) Permitted uses and disclosures of PHI
+(b) Requirement to implement appropriate safeguards
+(c) Reporting obligations for security incidents and breaches
+(d) Return or destruction of PHI upon termination
+
+4.5 Breach Notification
+(a) Individual notification: Within 60 days of discovery of a breach affecting PHI.
+(b) HHS notification: Within 60 days if the breach affects 500+ individuals; annual report for smaller breaches.
+(c) Media notification: Required if breach affects 500+ residents of a single state.
+
+REGULATION 5: SOX COMPLIANCE (FINANCIAL REPORTING)
+=====================================================
+
+5.1 Applicability
+Sarbanes-Oxley Act (SOX) compliance is required for our publicly traded subsidiary, TechNova Inc. SOX mandates internal controls over financial reporting to ensure accuracy and prevent fraud.
+
+5.2 Internal Controls (Section 302)
+(a) CEO and CFO must certify the accuracy of quarterly and annual financial reports.
+(b) All financial systems must have documented control procedures including segregation of duties, access controls, and reconciliation processes.
+(c) Material weaknesses in internal controls must be reported to the audit committee within 5 business days.
+
+5.3 IT General Controls (ITGC)
+(a) Access Management: Role-based access to financial systems with quarterly access reviews. All access changes must be documented and approved.
+(b) Change Management: All changes to financial systems must go through a formal change request, testing, and approval process. Emergency changes require retroactive documentation within 24 hours.
+(c) Backup and Recovery: Financial data must be backed up daily with recovery testing performed quarterly. RPO (Recovery Point Objective): 4 hours. RTO (Recovery Time Objective): 8 hours.
+(d) Monitoring: Automated monitoring of financial system availability with 99.9% uptime SLA.
+
+5.4 Audit Trail Requirements
+All financial transactions must have a complete audit trail including:
+(a) User identity and timestamp for each action
+(b) Before and after values for any data modification
+(c) Approval chain for transactions exceeding USD 10,000
+(d) Audit logs must be immutable and retained for 7 years
+
+5.5 Whistleblower Protections
+The company maintains an anonymous reporting hotline for employees to report financial irregularities. Retaliation against whistleblowers is strictly prohibited and constitutes grounds for termination and legal action.
+
+REGULATION 6: INTERNAL SECURITY POLICIES
+==========================================
+
+6.1 Access Control
+(a) All systems must implement role-based access control (RBAC).
+(b) Access to production databases must be restricted to authorized DevOps personnel only.
+(c) All access must be logged and auditable.
+(d) Access reviews must be conducted quarterly by each department head.
+(e) All privileged accounts must use hardware security keys for authentication.
+
+6.2 Encryption Standards
+(a) Data at rest must be encrypted using AES-256 encryption.
+(b) Data in transit must be encrypted using TLS 1.3 or higher.
+(c) Encryption keys must be rotated every 90 days.
+(d) Key management must comply with NIST SP 800-57 guidelines.
+
+6.3 Password Policy
+(a) Minimum password length: 14 characters.
+(b) Must contain uppercase, lowercase, numbers, and special characters.
+(c) Passwords must be changed every 90 days.
+(d) Multi-factor authentication (MFA) is mandatory for all employee accounts and customer admin accounts.
+(e) Password reuse is prohibited for the last 12 passwords.
+
+6.4 Incident Response Plan
+Phase 1 — Detection: Automated monitoring alerts, employee reporting.
+Phase 2 — Containment: Isolate affected systems within 1 hour of detection.
+Phase 3 — Eradication: Remove the threat and patch vulnerabilities within 24 hours.
+Phase 4 — Recovery: Restore services from verified backups.
+Phase 5 — Post-Incident Review: Conduct a review within 7 days and update procedures.
+
+6.5 Vendor Security Assessment
+All third-party vendors handling company or customer data must:
+(a) Complete a security questionnaire before onboarding.
+(b) Provide SOC 2 Type II or ISO 27001 certification.
+(c) Undergo annual security reassessment.
+(d) Sign a Data Processing Agreement (DPA) that meets GDPR requirements.
+
+REGULATION 7: ANTI-MONEY LAUNDERING (AML) AND KNOW YOUR CUSTOMER (KYC)
+=========================================================================
+
+7.1 KYC Requirements
+For enterprise customers with annual contracts exceeding USD 100,000:
+(a) Verify the identity of the signing authority using government-issued ID.
+(b) Verify the company's registration and legal standing.
+(c) Screen against international sanctions lists (OFAC, EU, UN).
+(d) Document the nature and purpose of the business relationship.
+
+7.2 Suspicious Activity Reporting
+Any employee who observes unusual payment patterns, requests for unusual payment methods, or transactions inconsistent with the customer's profile must report it to the Compliance Team within 24 hours.
+
+7.3 Record Retention
+All KYC documentation and transaction records must be retained for a minimum of 7 years from the end of the business relationship.

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal & Compliance — Document Audit</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-icon">⚖️</div>
+            <div class="header-text">
+                <h1>Legal Document Assistant</h1>
+                <p>Query contracts, clauses, and compliance regulations</p>
+            </div>
+            <div class="status-badge" id="statusBadge">Loading...</div>
+        </header>
+
+        <main class="chat-area" id="chatArea">
+            <div class="welcome-message">
+                <div class="welcome-icon">📜</div>
+                <h2>Legal & Compliance Audit</h2>
+                <p>Ask about contract clauses, termination terms, data protection obligations, and compliance
+                    requirements.</p>
+                <div class="suggestion-chips">
+                    <button class="chip"
+                        onclick="askQuestion('Is there a termination clause related to force majeure?')">Force
+                        Majeure</button>
+                    <button class="chip"
+                        onclick="askQuestion('What are the data breach notification requirements?')">Data Breach
+                        Rules</button>
+                    <button class="chip"
+                        onclick="askQuestion('What is the liability limitation in the contract?')">Liability
+                        Limits</button>
+                    <button class="chip"
+                        onclick="askQuestion('What are the password and encryption requirements?')">Security
+                        Policy</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="input-area">
+            <form id="queryForm" onsubmit="handleSubmit(event)">
+                <div class="input-wrapper">
+                    <input type="text" id="queryInput" placeholder="Ask about contracts, clauses, compliance..."
+                        autocomplete="off">
+                    <button type="submit" id="sendBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13"></path>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <script>
+        fetch('/status')
+            .then(r => r.json())
+            .then(data => {
+                const badge = document.getElementById('statusBadge');
+                badge.textContent = `${data.chunk_count} clauses indexed`;
+                badge.classList.add('active');
+            });
+
+        function askQuestion(question) {
+            document.getElementById('queryInput').value = question;
+            handleSubmit(new Event('submit'));
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('queryInput');
+            const query = input.value.trim();
+            if (!query) return;
+
+            const welcome = document.querySelector('.welcome-message');
+            if (welcome) welcome.remove();
+
+            addMessage(query, 'user');
+            input.value = '';
+            const loadingId = addLoading();
+
+            fetch('/query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query })
+            })
+                .then(r => r.json())
+                .then(data => {
+                    removeLoading(loadingId);
+                    addMessage(data.answer, 'assistant', data.sources);
+                })
+                .catch(err => {
+                    removeLoading(loadingId);
+                    addMessage('Error: Could not get a response.', 'assistant');
+                });
+        }
+
+        function addMessage(text, role, sources = []) {
+            const chatArea = document.getElementById('chatArea');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${role}`;
+
+            let html = `
+                <div class="message-avatar">${role === 'user' ? '👤' : '⚖️'}</div>
+                <div class="message-content">
+                    <div class="message-text">${formatText(text)}</div>
+            `;
+
+            if (sources && sources.length > 0) {
+                html += `
+                    <div class="sources-section">
+                        <button class="sources-toggle" onclick="toggleSources(this)">
+                            📜 Referenced Clauses (${sources.length})
+                        </button>
+                        <div class="sources-list" style="display:none;">
+                `;
+                sources.forEach(s => {
+                    html += `
+                        <div class="source-card">
+                            <div class="source-header">
+                                <span class="source-file">📁 ${s.source}</span>
+                                <span class="source-score">${(s.score * 100).toFixed(1)}% match</span>
+                            </div>
+                            <div class="source-section">${s.section || ''}</div>
+                            <div class="source-text">${s.text.substring(0, 300)}${s.text.length > 300 ? '...' : ''}</div>
+                        </div>
+                    `;
+                });
+                html += '</div></div>';
+            }
+
+            html += '</div>';
+            msgDiv.innerHTML = html;
+            chatArea.appendChild(msgDiv);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function formatText(text) {
+            return text
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+        }
+
+        function addLoading() {
+            const chatArea = document.getElementById('chatArea');
+            const id = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.className = 'message assistant';
+            div.id = id;
+            div.innerHTML = `
+                <div class="message-avatar">⚖️</div>
+                <div class="message-content">
+                    <div class="loading-dots"><span></span><span></span><span></span></div>
+                </div>
+            `;
+            chatArea.appendChild(div);
+            chatArea.scrollTop = chatArea.scrollHeight;
+            return id;
+        }
+
+        function removeLoading(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        function toggleSources(btn) {
+            const list = btn.nextElementSibling;
+            list.style.display = list.style.display === 'none' ? 'block' : 'none';
+            btn.textContent = list.style.display === 'none'
+                ? `📜 Referenced Clauses (${list.children.length})`
+                : `📜 Hide Clauses`;
+        }
+    </script>
+</body>
+
+</html>

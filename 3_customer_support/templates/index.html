@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support — Ticket Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-icon">🎧</div>
+            <div class="header-text">
+                <h1>Support Ticket Assistant</h1>
+                <p>Find similar past tickets and draft responses</p>
+            </div>
+            <div class="status-badge" id="statusBadge">Loading...</div>
+        </header>
+
+        <main class="chat-area" id="chatArea">
+            <div class="welcome-message">
+                <div class="welcome-icon">🎫</div>
+                <h2>Support Ticket Autocomplete</h2>
+                <p>Describe a new customer issue to find similar past tickets and get a draft resolution.</p>
+                <div class="suggestion-chips">
+                    <button class="chip"
+                        onclick="askQuestion('Customer cannot login, getting invalid credentials error')">Login
+                        Issue</button>
+                    <button class="chip"
+                        onclick="askQuestion('Customer was charged twice for their subscription')">Double
+                        Billing</button>
+                    <button class="chip" onclick="askQuestion('Customer reports the mobile app is crashing')">App
+                        Crashing</button>
+                    <button class="chip" onclick="askQuestion('Customer wants to recover a deleted project')">Data
+                        Recovery</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="input-area">
+            <form id="queryForm" onsubmit="handleSubmit(event)">
+                <div class="input-wrapper">
+                    <input type="text" id="queryInput" placeholder="Describe the customer's issue..."
+                        autocomplete="off">
+                    <button type="submit" id="sendBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13"></path>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <script>
+        fetch('/status')
+            .then(r => r.json())
+            .then(data => {
+                const badge = document.getElementById('statusBadge');
+                badge.textContent = `${data.chunk_count} tickets indexed`;
+                badge.classList.add('active');
+            });
+
+        function askQuestion(question) {
+            document.getElementById('queryInput').value = question;
+            handleSubmit(new Event('submit'));
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('queryInput');
+            const query = input.value.trim();
+            if (!query) return;
+
+            const welcome = document.querySelector('.welcome-message');
+            if (welcome) welcome.remove();
+
+            addMessage(query, 'user');
+            input.value = '';
+            const loadingId = addLoading();
+
+            fetch('/query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query })
+            })
+                .then(r => r.json())
+                .then(data => {
+                    removeLoading(loadingId);
+                    addMessage(data.answer, 'assistant', data.sources);
+                })
+                .catch(err => {
+                    removeLoading(loadingId);
+                    addMessage('Error: Could not get a response.', 'assistant');
+                });
+        }
+
+        function addMessage(text, role, sources = []) {
+            const chatArea = document.getElementById('chatArea');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${role}`;
+
+            let html = `
+                <div class="message-avatar">${role === 'user' ? '👤' : '🎧'}</div>
+                <div class="message-content">
+                    <div class="message-text">${formatText(text)}</div>
+            `;
+
+            if (sources && sources.length > 0) {
+                html += `
+                    <div class="sources-section">
+                        <button class="sources-toggle" onclick="toggleSources(this)">
+                            🎫 Similar Tickets (${sources.length})
+                        </button>
+                        <div class="sources-list" style="display:none;">
+                `;
+                sources.forEach(s => {
+                    html += `
+                        <div class="source-card">
+                            <div class="source-header">
+                                <span class="source-file">${s.ticket_id}: ${s.subject}</span>
+                                <span class="source-score">${(s.score * 100).toFixed(1)}% match</span>
+                            </div>
+                            <div class="source-meta">
+                                <span class="meta-tag category">${s.category}</span>
+                                <span class="meta-tag priority ${s.priority.toLowerCase()}">${s.priority}</span>
+                            </div>
+                            <div class="source-text">${s.text.substring(0, 300)}${s.text.length > 300 ? '...' : ''}</div>
+                        </div>
+                    `;
+                });
+                html += '</div></div>';
+            }
+
+            html += '</div>';
+            msgDiv.innerHTML = html;
+            chatArea.appendChild(msgDiv);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function formatText(text) {
+            return text
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+        }
+
+        function addLoading() {
+            const chatArea = document.getElementById('chatArea');
+            const id = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.className = 'message assistant';
+            div.id = id;
+            div.innerHTML = `
+                <div class="message-avatar">🎧</div>
+                <div class="message-content">
+                    <div class="loading-dots"><span></span><span></span><span></span></div>
+                </div>
+            `;
+            chatArea.appendChild(div);
+            chatArea.scrollTop = chatArea.scrollHeight;
+            return id;
+        }
+
+        function removeLoading(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        function toggleSources(btn) {
+            const list = btn.nextElementSibling;
+            list.style.display = list.style.display === 'none' ? 'block' : 'none';
+            btn.textContent = list.style.display === 'none'
+                ? `🎫 Similar Tickets (${list.children.length})`
+                : `🎫 Hide Tickets`;
+        }
+    </script>
+</body>
+
+</html>

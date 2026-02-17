@@ -1,0 +1,222 @@
+[
+    {
+        "ticket_id": "TKT-1001",
+        "subject": "Cannot login to my account",
+        "category": "Authentication",
+        "priority": "High",
+        "description": "Customer reports being unable to login to their account since this morning. They receive an 'Invalid credentials' error even though they are sure their password is correct. They have tried resetting their password twice but the issue persists.",
+        "resolution": "The issue was caused by a case-sensitivity bug in the latest authentication update. The customer's email was stored with mixed case but the login system was comparing in lowercase. We applied hotfix AUTH-2026-01 to normalize email comparison. Customer confirmed they can now login successfully.",
+        "resolved_by": "Agent Sarah M.",
+        "date_created": "2026-01-05",
+        "date_resolved": "2026-01-05"
+    },
+    {
+        "ticket_id": "TKT-1002",
+        "subject": "Billing charged twice for subscription",
+        "category": "Billing",
+        "priority": "High",
+        "description": "Customer was charged twice for their monthly Pro subscription ($49.99 each). The duplicate charge appeared on their credit card statement on January 3rd. Customer is requesting an immediate refund for the duplicate charge.",
+        "resolution": "Verified in Stripe dashboard that a duplicate webhook triggered two charges. Processed a refund of $49.99 for the duplicate charge (Refund ID: ref_8xk29). Reported the webhook issue to the engineering team (JIRA: BIL-445). Customer received the refund confirmation email. Turnaround: 3-5 business days for bank processing.",
+        "resolved_by": "Agent Michael R.",
+        "date_created": "2026-01-04",
+        "date_resolved": "2026-01-04"
+    },
+    {
+        "ticket_id": "TKT-1003",
+        "subject": "How to export my data as CSV",
+        "category": "Feature Help",
+        "priority": "Medium",
+        "description": "Customer wants to export their project analytics data as a CSV file. They have looked through the dashboard but cannot find the export option. They are on the Pro plan.",
+        "resolution": "Guided the customer to Dashboard > Analytics > Reports tab > Click the three-dot menu on the top right > Select 'Export as CSV'. Also informed them that they can schedule automated weekly exports via Settings > Integrations > Scheduled Exports. Customer confirmed successful export.",
+        "resolved_by": "Agent Priya K.",
+        "date_created": "2026-01-06",
+        "date_resolved": "2026-01-06"
+    },
+    {
+        "ticket_id": "TKT-1004",
+        "subject": "API returning 500 error on project creation",
+        "category": "API/Technical",
+        "priority": "Critical",
+        "description": "Customer's integration is failing when trying to create projects via the API. They receive a 500 Internal Server Error. This started happening after they upgraded to API v2. Their request payload includes team_members as an array of user IDs.",
+        "resolution": "Investigated the API logs. The 500 error was caused by the customer passing integer user IDs instead of string UUIDs in the team_members array. API v2 changed user IDs from integers to UUIDs. Provided the customer with the migration guide link and helped them update their integration code. Also filed a ticket (API-892) to improve the error message from 500 to a descriptive 400 validation error.",
+        "resolved_by": "Agent David L.",
+        "date_created": "2026-01-07",
+        "date_resolved": "2026-01-08"
+    },
+    {
+        "ticket_id": "TKT-1005",
+        "subject": "Request to cancel subscription",
+        "category": "Account",
+        "priority": "Medium",
+        "description": "Customer wants to cancel their Enterprise subscription effective immediately. They mention that the product does not meet their team's needs and they have found an alternative solution. Current billing cycle ends on January 31.",
+        "resolution": "Offered the customer a 30% discount for the next 3 months as a retention offer, but they declined. Processed the cancellation as requested. Subscription will remain active until January 31 (end of current billing period). No further charges will be applied. Sent cancellation confirmation email with data export instructions. Informed them that data will be retained for 90 days post-cancellation.",
+        "resolved_by": "Agent Lisa T.",
+        "date_created": "2026-01-08",
+        "date_resolved": "2026-01-08"
+    },
+    {
+        "ticket_id": "TKT-1006",
+        "subject": "Slow page load times on dashboard",
+        "category": "Performance",
+        "priority": "High",
+        "description": "Customer reports that their analytics dashboard takes over 30 seconds to load. They have 500+ projects and the issue seems to get worse over time. They are using Chrome on Windows 11.",
+        "resolution": "Identified that the dashboard was loading all 500+ projects' analytics data at once without pagination. Applied server-side pagination (50 projects per page) and added lazy loading for chart components. Also enabled CDN caching for static assets. After the fix, dashboard load time reduced to under 3 seconds. Customer confirmed the improvement. Fix deployed in release v2.4.1.",
+        "resolved_by": "Agent James W.",
+        "date_created": "2026-01-09",
+        "date_resolved": "2026-01-11"
+    },
+    {
+        "ticket_id": "TKT-1007",
+        "subject": "Cannot upload files larger than 10MB",
+        "category": "Feature Help",
+        "priority": "Medium",
+        "description": "Customer is trying to upload a 25MB design file to their project but receives a 'File too large' error. They need to share large design assets with their team.",
+        "resolution": "Informed the customer that the standard plan has a 10MB file upload limit. The Pro plan supports files up to 100MB, and Enterprise supports up to 500MB. Customer was on the Standard plan. Provided upgrade options and pricing. Customer upgraded to Pro plan and confirmed successful upload of their 25MB file.",
+        "resolved_by": "Agent Priya K.",
+        "date_created": "2026-01-10",
+        "date_resolved": "2026-01-10"
+    },
+    {
+        "ticket_id": "TKT-1008",
+        "subject": "Two-factor authentication not sending SMS",
+        "category": "Authentication",
+        "priority": "High",
+        "description": "Customer enabled 2FA via SMS but is not receiving the verification code. They have checked their phone number is correct and have signal. They need to access their account urgently for a client presentation.",
+        "resolution": "Checked the SMS delivery logs via Twilio dashboard. The customer's carrier (Jio) was temporarily blocking our short code. As an immediate solution, helped the customer switch to authenticator app-based 2FA (Google Authenticator). Generated a temporary bypass code for immediate access. Reported the SMS delivery issue to our Twilio account manager (Case: TWL-9982). Customer confirmed successful login.",
+        "resolved_by": "Agent Sarah M.",
+        "date_created": "2026-01-10",
+        "date_resolved": "2026-01-10"
+    },
+    {
+        "ticket_id": "TKT-1009",
+        "subject": "Webhook not triggering for task completion events",
+        "category": "API/Technical",
+        "priority": "High",
+        "description": "Customer has configured a webhook for 'task.completed' events but the webhook endpoint is not receiving any payloads. They have verified their endpoint URL is correct and accessible. Other webhook events like 'task.created' are working fine.",
+        "resolution": "Reviewed the webhook configuration. The customer had registered the webhook on API v1 but their project was migrated to v2. In v2, the event name changed from 'task.completed' to 'task.status.changed' with a status field. Updated the customer's webhook subscription to use the new event name and added a filter for status='completed'. Provided updated webhook payload documentation. Customer confirmed webhooks are now working.",
+        "resolved_by": "Agent David L.",
+        "date_created": "2026-01-12",
+        "date_resolved": "2026-01-12"
+    },
+    {
+        "ticket_id": "TKT-1010",
+        "subject": "Data discrepancy in monthly analytics report",
+        "category": "Data/Reports",
+        "priority": "Medium",
+        "description": "Customer noticed that the total user count in their monthly analytics report (December 2025) shows 1,250 users, but their user management page shows 1,312 users. They need accurate numbers for their board presentation.",
+        "resolution": "Investigated the discrepancy. The analytics report uses a snapshot from the 1st of each month, while the user management page shows real-time data. The 62-user difference represents users who signed up between December 1-31. Clarified the reporting methodology to the customer. Also showed them how to generate a custom report with a specific date range (Settings > Reports > Custom Date Range) which would give them the exact end-of-month numbers. Customer was satisfied with the explanation.",
+        "resolved_by": "Agent Lisa T.",
+        "date_created": "2026-01-13",
+        "date_resolved": "2026-01-13"
+    },
+    {
+        "ticket_id": "TKT-1011",
+        "subject": "SSO integration with Okta failing",
+        "category": "Authentication",
+        "priority": "Critical",
+        "description": "Enterprise customer's SSO integration with Okta stopped working. All 200+ employees are unable to login via SSO. Error in Okta logs shows 'SAML assertion validation failed'. This is blocking their entire organization.",
+        "resolution": "The issue was caused by an expired SAML certificate on our end. The certificate was valid until January 14, 2026 (yesterday). Immediately generated a new SAML certificate via our admin panel. Provided the customer with the new certificate and updated metadata XML. Walked the Okta admin through updating the certificate in their Okta admin console under Applications > TechNova > SAML Settings > Certificate. SSO was restored within 30 minutes. Added automated certificate expiry alerts to prevent recurrence (JIRA: SEC-1120).",
+        "resolved_by": "Agent Michael R.",
+        "date_created": "2026-01-15",
+        "date_resolved": "2026-01-15"
+    },
+    {
+        "ticket_id": "TKT-1012",
+        "subject": "Mobile app crashing on Android 14",
+        "category": "Mobile",
+        "priority": "High",
+        "description": "Multiple customers reporting that the Android mobile app crashes immediately upon opening on Android 14 devices (Samsung Galaxy S24, Pixel 8). The app was working fine until the latest update version 3.2.0.",
+        "resolution": "Identified a compatibility issue with Android 14's new photo picker API that was introduced in app version 3.2.0. The crash was triggered during app initialization when requesting media permissions. Pushed an emergency hotfix (v3.2.1) that delays the permission request until the user actually needs to upload media. Also added Android 14 devices to our automated test matrix. Updated deployed to Play Store within 4 hours. Affected customers were notified via in-app notification to update.",
+        "resolved_by": "Agent James W.",
+        "date_created": "2026-01-14",
+        "date_resolved": "2026-01-14"
+    },
+    {
+        "ticket_id": "TKT-1013",
+        "subject": "Need to recover deleted project",
+        "category": "Data Recovery",
+        "priority": "Medium",
+        "description": "Customer accidentally deleted a project named 'Q4 Marketing Campaign' that contained 3 months of work. They deleted it 2 days ago and need to recover all the files and task history.",
+        "resolution": "Good news - deleted projects are soft-deleted and retained for 90 days. Navigated to Admin Panel > Deleted Items > Projects. Found the 'Q4 Marketing Campaign' project (deleted on Jan 12). Restored the project with all associated files, tasks, comments, and activity history. All 47 files and 156 tasks were recovered successfully. Informed the customer about the 90-day recovery window and suggested enabling the 'Confirm before delete' setting in their account preferences.",
+        "resolved_by": "Agent Priya K.",
+        "date_created": "2026-01-14",
+        "date_resolved": "2026-01-14"
+    },
+    {
+        "ticket_id": "TKT-1014",
+        "subject": "Request for custom report template",
+        "category": "Feature Request",
+        "priority": "Low",
+        "description": "Customer wants the ability to create custom report templates with their company branding (logo, colors, header/footer). Currently, all exported reports use the default TechNova template.",
+        "resolution": "Informed the customer that custom report templates are available on the Enterprise plan. Their current Pro plan includes basic report customization (title and description only). Shared the Enterprise plan features comparison document. Also submitted their request as a feature upvote (FR-2891) for potentially bringing basic branding to the Pro plan in a future release. Customer expressed interest in upgrading and scheduled a call with the sales team.",
+        "resolved_by": "Agent Lisa T.",
+        "date_created": "2026-01-15",
+        "date_resolved": "2026-01-15"
+    },
+    {
+        "ticket_id": "TKT-1015",
+        "subject": "Email notifications not being received",
+        "category": "Notifications",
+        "priority": "Medium",
+        "description": "Customer reports not receiving any email notifications for the past week. They checked their spam folder and notification settings. They are expecting project update emails and team invitation notifications.",
+        "resolution": "Checked SendGrid delivery logs for the customer's email. Found that their corporate email server (Microsoft Exchange) was rejecting our emails due to a recent SPF record change on our domain. We had migrated email sending servers but hadn't updated the SPF record for the new IP range. Updated the DNS SPF record to include the new IP range. Also added DKIM signing for improved deliverability. Sent a test notification which was received successfully. Full email delivery resumed within 2 hours after DNS propagation.",
+        "resolved_by": "Agent Sarah M.",
+        "date_created": "2026-01-13",
+        "date_resolved": "2026-01-14"
+    },
+    {
+        "ticket_id": "TKT-1016",
+        "subject": "Team members cannot see shared project",
+        "category": "Permissions",
+        "priority": "High",
+        "description": "Customer added 5 team members to their project but none of them can see the project in their dashboard. The customer is the project admin and confirmed the invitations were accepted. Team members only see their own individual projects.",
+        "resolution": "Investigated the team permissions configuration. The project visibility was set to 'private' instead of 'team'. Changed the visibility to 'team' under Project Settings > General > Visibility. However, the root cause was that the team members were added as 'viewers' to the organization but not assigned to the specific team linked to the project. Added them to 'Team Alpha' under Organization > Teams. All 5 members confirmed they can now see and access the project. Recommended the customer review the Permissions Guide at docs.technova.com/permissions.",
+        "resolved_by": "Agent David L.",
+        "date_created": "2026-01-16",
+        "date_resolved": "2026-01-16"
+    },
+    {
+        "ticket_id": "TKT-1017",
+        "subject": "Zapier integration stopped syncing tasks",
+        "category": "Integrations",
+        "priority": "High",
+        "description": "Customer's Zapier integration that was automatically creating tasks from Google Forms submissions has stopped working. It was working fine for months. The Zapier task history shows 'Error 403: Forbidden' for all recent triggers.",
+        "resolution": "The customer's API token used by Zapier had expired after the 90-day rotation policy we implemented in December. Generated a new API token for the customer and walked them through updating it in Zapier (Settings > Connections > TechNova > Reconnect). Also recommended they switch to OAuth 2.0 connection which handles token refresh automatically and doesn't expire. Tested with a new form submission and confirmed the task was created successfully in TechNova.",
+        "resolved_by": "Agent Michael R.",
+        "date_created": "2026-01-17",
+        "date_resolved": "2026-01-17"
+    },
+    {
+        "ticket_id": "TKT-1018",
+        "subject": "Dashboard showing wrong timezone for deadlines",
+        "category": "Bug",
+        "priority": "Medium",
+        "description": "Customer in IST (UTC+5:30) sees all task deadlines displayed in UTC. A task with deadline 'Jan 20, 5:30 PM IST' appears as 'Jan 20, 12:00 PM' in their dashboard. This is causing confusion about actual due times.",
+        "resolution": "Confirmed this was a known bug (JIRA: UI-2341) introduced in the v2.4 release where the timezone rendering was not picking up the user's profile timezone setting. Verified the customer's profile had IST set correctly. Applied a temporary workaround by asking the customer to clear their browser cache and cookies, then log in again. This forced the frontend to re-fetch the timezone configuration. Permanent fix (v2.4.2) is scheduled for release on January 22. Added the customer to the notification list for the fix release.",
+        "resolved_by": "Agent James W.",
+        "date_created": "2026-01-18",
+        "date_resolved": "2026-01-18"
+    },
+    {
+        "ticket_id": "TKT-1019",
+        "subject": "Storage quota exceeded but usage shows only 60%",
+        "category": "Billing/Storage",
+        "priority": "Medium",
+        "description": "Customer on the Pro plan (50GB storage) is getting 'Storage quota exceeded' errors when uploading files, but their storage dashboard shows only 30GB used (60%). They need to upload critical project files.",
+        "resolution": "Investigated the storage accounting system. Found that deleted files were still counting toward the quota because the 30-day retention period for deleted files was including them in the total. The customer had deleted a large batch of video files (22GB) a week ago that were still in the deleted items bin. Explained the retention policy and helped the customer permanently purge unnecessary deleted files from Admin Panel > Deleted Items > Select All > Purge. After purging, actual usage dropped to 28GB. Customer was able to upload their files. Suggested upgrading to Enterprise for 500GB if their storage needs continue to grow.",
+        "resolved_by": "Agent Priya K.",
+        "date_created": "2026-01-19",
+        "date_resolved": "2026-01-19"
+    },
+    {
+        "ticket_id": "TKT-1020",
+        "subject": "API v1 deprecation breaking our production pipeline",
+        "category": "API/Technical",
+        "priority": "Critical",
+        "description": "Customer's production CI/CD pipeline broke overnight after API v1 was deprecated. They have 15 microservices calling API v1 endpoints and received no deprecation notice. Their entire deployment process is blocked.",
+        "resolution": "API v1 deprecation was communicated via email 6 months ago and via in-app banners for the past 3 months. However, the customer's admin had email notifications disabled for their account. As an immediate fix, re-enabled API v1 endpoints for their organization with a 60-day grace period (deadline: March 20, 2026). Assigned a dedicated migration specialist (api-migration@technova.com) to assist with their v1-to-v2 transition. Provided the complete migration guide and API changelog. Scheduled a kickoff call for January 22 to prioritize their 15 service migrations. Also updated our deprecation process to include SMS and webhook alerts for critical changes (JIRA: OPS-445).",
+        "resolved_by": "Agent David L.",
+        "date_created": "2026-01-20",
+        "date_resolved": "2026-01-20"
+    }
+]

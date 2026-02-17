@@ -1,0 +1,6 @@
+# RAG Exercises - Dependencies
+flask>=3.0.0
+ollama>=0.4.0
+chromadb>=0.4.0
+PyPDF2>=3.0.0
+python-docx>=1.0.0
